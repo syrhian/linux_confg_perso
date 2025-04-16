@@ -26,6 +26,8 @@ mkdir -p "$THEME_DIR"
 mv "$THEME_NAME" "$THEME_DIR/$THEME_NAME"
 chmod u+rw "$THEME_DIR/$THEME_NAME"
 
+exec zsh
+
 echo "🧠 Configuration du .zshrc..."
   echo "eval "$(oh-my-posh init zsh --config $THEME_DIR/$THEME_NAME)"" >> "$ZSHRC"
 
