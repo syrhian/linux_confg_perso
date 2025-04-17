@@ -4,8 +4,6 @@ set -e
 
 # ---------- CONFIG ----------
 THEME_NAME="custom.omp.json"
-THEME_DIR="$HOME/.poshthemes"
-ZSHRC="$HOME/.zshrc"
 # ----------------------------
 
 echo "📦 Mise à jour des paquets..."
@@ -22,14 +20,14 @@ sudo chmod +x /usr/local/bin/oh-my-posh
 sudo oh-my-posh font install meslo
 
 echo "🎨 Téléchargement du thème $THEME_NAME..."
-mkdir -p "$THEME_DIR"
-mv "$THEME_NAME" "$THEME_DIR/$THEME_NAME"
-chmod u+rw "$THEME_DIR/$THEME_NAME"
+mkdir -p "$HOME/.poshthemes"
+mv "$THEME_NAME" "$HOME/.poshthemes/$THEME_NAME"
+chmod u+rw "$HOME/.poshthemes/$THEME_NAME"
 
-exec zsh
+
 
 echo "🧠 Configuration du .zshrc..."
-  echo "eval "$(oh-my-posh init zsh --config $THEME_DIR/$THEME_NAME)"" >> "$ZSHRC"
+  mv ".zshrc" $HOME.zshrc
 
 echo "🐚 Passage à Zsh comme shell par défaut..."
 chsh -s "$(which zsh)"
