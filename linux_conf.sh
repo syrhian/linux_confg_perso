@@ -8,7 +8,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
 # ----------------------------
 
 echo "📦 Mise à jour des paquets..."
-sudo apt update && sudo apt install -y zsh wget curl git neovim netplan.io
+sudo apt update && sudo apt install -y zsh wget curl git neovim netplan.io pipx
+pipx install thefuck
 
 echo "🔧 Installation de Oh My Zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
